@@ -1,3 +1,5 @@
+[README-2.md](https://github.com/user-attachments/files/27214201/README-2.md)
+
 # MannaSeed
 
 **Hidden Provision. Eternal Word.**
@@ -17,16 +19,8 @@ All 66 books of the King James Bible were inscribed on Bitcoin mainnet between A
 - **Read it:** [blockchainbible.org/Read](https://blockchainbible.org/Read)
 - **Verify it:** [blockchainbible.org/Verify](https://blockchainbible.org/Verify)
 - **Full inscription data:** see `INSCRIPTIONS.csv`
-- **Source manifest (SHA-256 hashes):** see `MANIFEST.csv`
-- **Verification script:** see `verify_all.py`
 
-To verify any inscription independently:
-
-```bash
-python3 verify_all.py
-```
-
-The script fetches each inscription from ordinals.com in real time, computes its SHA-256 hash, and compares it against the source manifest. No trust in this project required — the math speaks for itself.
+To verify any inscription independently, take any TxID from `INSCRIPTIONS.csv`, fetch the content at `https://ordinals.com/content/<txid>i0`, and compute its SHA-256 hash. Compare against the `sha256_verified` column. No trust in this project required — the math speaks for itself.
 
 ---
 
@@ -53,10 +47,7 @@ Full design specification in the [whitepaper](MannaSeed_Whitepaper_v1_3.pdf).
 | File | Description |
 |---|---|
 | `INSCRIPTIONS.csv` | All 66 TxIDs with verification data |
-| `MANIFEST.csv` | SHA-256 hashes and byte sizes for all 66 source files |
-| `verify_all.py` | Independent verification script |
 | `MannaSeed_Whitepaper_v1_3.pdf` | Full project whitepaper |
-| `MannaSeed_All_TxIDs.txt` | Plain text TxID reference |
 
 ---
 
@@ -67,7 +58,7 @@ Every inscription is publicly verifiable. To verify a single book manually:
 1. Find its TxID in `INSCRIPTIONS.csv`
 2. Go to `https://ordinals.com/content/<txid>i0`
 3. Compute SHA-256 of the returned content
-4. Compare against `sha256_normalized` in `MANIFEST.csv`
+4. Compare against `sha256_verified` in `INSCRIPTIONS.csv`
 
 If the hashes match, the on-chain content is byte-for-byte identical to the source. No trust required.
 
@@ -81,18 +72,7 @@ There is no paid version. There is no premium tier. Profiting from the Word of G
 
 ---
 
-## Acknowledgments
-
-All glory belongs to God.
-
-To Pastor Allen Nolan of Cornerstone Fellowship in Tahlequah, Oklahoma — his verse-by-verse teaching of scripture was the instrument God used. [youtube.com/@allennolan](https://youtube.com/@allennolan)
-
-To Satoshi Nakamoto — who built something permanent, gave it to the world, and walked away without claiming it.
-
----
-
 *"The grass withers and the flowers fall, but the word of our God endures forever."*
 — Isaiah 40:8
 
 **Open Source · Free Forever · [blockchainbible.org](https://blockchainbible.org)**
-
